@@ -2,6 +2,16 @@ use crate::hash::md5::*;
 use hex::*;
 
 pub trait LengthExtend {
+    /// Perform Length Extension Attack
+    ///
+    /// Calculates h(base || extension) based on the length of `base` and the digest of `base`.
+    /// 
+    /// Arguments:
+    /// * `base` - Bytes of Pre-Image of `base_digest` (Only length matters)
+    /// * `base_digest` - Digest of original msg
+    /// * `extension` - Bytes to extend the hash with
+    ///
+    /// TODO: Change signature (probably should only require `base_len`, not `base`
     fn extend_bytes(base: Vec<u8>, base_digest: &str, extension: Vec<u8>) -> (String, String);
 
     fn extend_str(base: &str, base_digest: &str, extension: &str) -> (String, String) {
