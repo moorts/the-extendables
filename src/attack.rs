@@ -1,13 +1,14 @@
 use crate::hash::md5::*;
 use hex::*;
 
-trait LengthExtend {
+pub trait LengthExtend {
     fn extend_bytes(base: Vec<u8>, base_digest: &str, extension: Vec<u8>) -> (String, String);
 
     fn extend_str(base: &str, base_digest: &str, extension: &str) -> (String, String) {
         Self::extend_bytes(base.as_bytes().to_vec(), base_digest, extension.as_bytes().to_vec())
     }
 
+    /// Pad msg as if its size was n
     fn forge_padding(msg: Vec<u8>, n: usize) -> Vec<u8>;
 }
 
@@ -19,7 +20,7 @@ impl LengthExtend for MD5 {
 
         let mut len_padding = 512 - (n % 512);
 
-        if len_padding < 65 {
+        if len_padding <= 64 {
             // Add new block
             len_padding += 512;
             msg.reserve_exact(len_padding);
