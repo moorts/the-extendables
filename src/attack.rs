@@ -2,7 +2,7 @@ use crate::hash::md5::*;
 use hex::*;
 
 pub trait LengthExtend {
-    /// Perform Length Extension Attack
+    /// Perform Length Extension Attack.
     ///
     /// Calculates h(base || extension) based on the length of `base` and the digest of `base`.
     /// 
