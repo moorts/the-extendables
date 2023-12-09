@@ -1,5 +1,4 @@
 use crate::hash::md5::*;
-use hex::*;
 
 pub trait LengthExtend {
     /// Perform Length Extension Attack.
