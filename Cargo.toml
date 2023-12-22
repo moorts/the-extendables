@@ -3,8 +3,13 @@ name = "the-extendables"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "extendables"
+crate-type = ["cdylib"]
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 clap = { version = "4.4.11", features = ["derive"] }
 hex = "0.4.3"
+pyo3 = { version = "0.20.0", features = ["abi3-py38"] }
