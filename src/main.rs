@@ -3,8 +3,8 @@ use clap::{Parser, ValueEnum};
 use std::io;
 use std::fs::File;
 
-use the_extendables::attack::LengthExtend;
-use the_extendables::hash::md5::MD5;
+use extendables::attack::LengthExtend;
+use extendables::hash::md5::MD5;
 
 #[derive(Parser, Debug)]
 #[command(name = "hash-extender")]
